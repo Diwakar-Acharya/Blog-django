@@ -1,0 +1,184 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Blog</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Tailwind Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fade: "fadeIn 1s ease-out",
+            slide: "slideUp 0.8s ease-out",
+          },
+          keyframes: {
+            fadeIn: {
+              "0%": { opacity: "0" },
+              "100%": { opacity: "1" },
+            },
+            slideUp: {
+              "0%": { transform: "translateY(40px)", opacity: "0" },
+              "100%": { transform: "translateY(0)", opacity: "1" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-zinc-900 text-zinc-200 font-sans">
+
+<!-- ================= NAVBAR ================= -->
+<header class="border-b border-zinc-800 sticky top-0 bg-zinc-900 z-50">
+  <div class="max-w-7xl mx-auto flex items-center justify-between p-4">
+    <h1 class="text-2xl font-bold text-yellow-400">Django Blog</h1>
+
+    <div class="hidden md:flex gap-6 text-sm">
+      <a href="#" class="hover:text-yellow-400 transition">Sports</a>
+      <a href="#" class="hover:text-yellow-400 transition">Politics</a>
+      <a href="#" class="hover:text-yellow-400 transition">Technology</a>
+      <a href="#" class="hover:text-yellow-400 transition">Business</a>
+      <a href="#" class="hover:text-yellow-400 transition">Health</a>
+    </div>
+
+    <div class="flex gap-2">
+      <button class="px-4 py-1 text-sm rounded bg-zinc-800 hover:bg-zinc-700 transition">
+        Login
+      </button>
+      <button class="px-4 py-1 text-sm rounded bg-yellow-500 text-black hover:bg-yellow-400 transition">
+        Register
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="max-w-7xl mx-auto p-4 animate-fade">
+  <div class="relative rounded-2xl overflow-hidden h-[420px] group">
+    <img
+      src="https://images.unsplash.com/photo-1556155092-8707de31f9c4"
+      class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition duration-700"
+    />
+
+    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+
+    <div class="relative z-10 p-8 md:p-14 max-w-2xl">
+      <h2 class="text-4xl md:text-5xl font-extrabold mb-4 leading-tight">
+        The Real-Time AI Data Race Is On
+      </h2>
+      <p class="text-zinc-300 mb-6">
+        Machines are getting smarter as AI and ML models evolve rapidly in real-time environments.
+      </p>
+      <a href="#" class="inline-block text-yellow-400 font-semibold hover:underline">
+        Continue reading →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED POSTS ================= -->
+<section class="max-w-7xl mx-auto p-4 mt-14 animate-slide">
+  <h3 class="text-yellow-400 uppercase tracking-widest mb-6 text-sm">
+    Featured Posts
+  </h3>
+
+  <div class="grid md:grid-cols-2 gap-10">
+    <!-- Card -->
+    <article class="group">
+      <h4 class="text-2xl font-bold mb-2 group-hover:text-yellow-400 transition">
+        Socially responsible investing under the moniker
+      </h4>
+      <p class="text-sm text-zinc-400 mb-3">
+        2 years ago · djangoadmin
+      </p>
+      <p class="text-zinc-300">
+        Sustainable bonds are a big slice of this pie. Over the last two years...
+      </p>
+    </article>
+
+    <article class="group">
+      <h4 class="text-2xl font-bold mb-2 group-hover:text-yellow-400 transition">
+        How Wall Street Banks Will Earn Billions From Tax-Free Energy Bonds
+      </h4>
+      <p class="text-sm text-zinc-400 mb-3">
+        2 years ago · djangoadmin
+      </p>
+      <p class="text-zinc-300">
+        One of the hottest trends in finance is prepaid muni bonds...
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= RECENT POSTS ================= -->
+<section class="max-w-7xl mx-auto p-4 mt-20 animate-slide">
+  <h3 class="text-yellow-400 uppercase tracking-widest mb-8 text-sm">
+    Recent Articles
+  </h3>
+
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Post Card -->
+    <div class="bg-zinc-800 rounded-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+      <img
+        src="https://images.unsplash.com/photo-1518770660439-4636190af475"
+        class="h-44 w-full object-cover"
+      />
+      <div class="p-5">
+        <h4 class="font-bold text-lg mb-2 hover:text-yellow-400 transition">
+          AI Is Reshaping Software Development
+        </h4>
+        <p class="text-sm text-zinc-400">
+          Discover how AI tools are changing developer workflows.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-zinc-800 rounded-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+      <img
+        src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d"
+        class="h-44 w-full object-cover"
+      />
+      <div class="p-5">
+        <h4 class="font-bold text-lg mb-2 hover:text-yellow-400 transition">
+          Future of Remote Work
+        </h4>
+        <p class="text-sm text-zinc-400">
+          Why companies are embracing distributed teams.
+        </p>
+      </div>
+    </div>
+
+    <div class="bg-zinc-800 rounded-xl overflow-hidden hover:-translate-y-2 transition duration-300">
+      <img
+        src="https://images.unsplash.com/photo-1526378722484-cc5c5108d5a8"
+        class="h-44 w-full object-cover"
+      />
+      <div class="p-5">
+        <h4 class="font-bold text-lg mb-2 hover:text-yellow-400 transition">
+          Dark UX Design Principles
+        </h4>
+        <p class="text-sm text-zinc-400">
+          Learn why dark themes are dominating modern apps.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="mt-24 border-t border-zinc-800 py-8 text-center text-zinc-500 text-sm">
+  © 2026 · Built with Django & Tailwind 💛
+</footer>
+
+</body>
+</html>
