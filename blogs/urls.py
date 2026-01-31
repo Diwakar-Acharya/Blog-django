@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('', views.home, name='homepage'),
+    path('<int:category_id>/', views.posts_by_category, name='posts_by_category'),
     
 
 
