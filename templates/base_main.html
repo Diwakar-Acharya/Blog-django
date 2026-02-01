@@ -1,0 +1,108 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dark Blog</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fade: "fadeIn 1s ease-out forwards",
+            slide: "slideUp 0.8s ease-out forwards",
+            float: "float 6s ease-in-out infinite",
+          },
+          keyframes: {
+            fadeIn: {
+              "0%": { opacity: "0" },
+              "100%": { opacity: "1" },
+            },
+            slideUp: {
+              "0%": { transform: "translateY(40px)", opacity: "0" },
+              "100%": { transform: "translateY(0)", opacity: "1" },
+            },
+            float: {
+              "0%,100%": { transform: "translateY(0)" },
+              "50%": { transform: "translateY(-6px)" },
+            },
+          },
+        },
+      },
+    };
+  </script>
+</head>
+
+<body class="bg-zinc-900 text-zinc-200 selection:bg-yellow-400/30">
+
+
+
+
+
+<!-- ================= NAVBAR ================= -->
+<header class="sticky top-0 z-50 backdrop-blur bg-zinc-900/80 border-b border-zinc-800">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+
+    <h1 class="text-2xl font-extrabold text-yellow-400">Django Blog</h1>
+
+    <!-- Search -->
+    <div class="hidden md:block relative w-full max-w-md">
+      <input
+        type="text"
+        placeholder="Search articles..."
+        class="w-full pl-11 pr-4 py-2 rounded-full bg-zinc-800 border border-zinc-700
+               focus:outline-none focus:ring-2 focus:ring-yellow-400/40 transition"
+      />
+      <svg class="absolute left-4 top-2.5 w-5 h-5 text-zinc-400" fill="none" stroke="currentColor" stroke-width="2"
+        viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="M21 21l-4.35-4.35M16 10.5a5.5 5.5 0 11-11 0 5.5 5.5 0 0111 0z"/>
+      </svg>
+    </div>
+
+    <div class="flex gap-2">
+      <button class="px-4 py-1.5 text-sm rounded-full bg-zinc-800 hover:bg-zinc-700 transition">
+        Login
+      </button>
+      <button class="px-4 py-1.5 text-sm rounded-full bg-yellow-500 text-black hover:bg-yellow-400 transition">
+        Register
+      </button>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <nav class="max-w-7xl mx-auto px-5 pb-4 flex gap-9 text-lg overflow-x-auto">
+    {% for category in categories %}
+    <a class="hover:text-yellow-400 transition" href="{% url 'posts_by_category' category.id %}"> {{ category }}</a>
+    {% endfor %}
+    
+    
+  </nav>
+</header>
+
+
+
+
+
+{% block content %}
+
+
+
+{% endblock content %}
+
+
+
+
+
+<footer class="mt-28 border-t border-zinc-800 py-10 text-center text-zinc-500 text-sm">
+  Built with Django & Tailwind ⚡
+</footer>
+
+</body>
+</html>

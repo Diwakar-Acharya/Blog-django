@@ -22,9 +22,12 @@ def home(request):
 def posts_by_category(request, category_id):
 
   posts = Blog.objects.filter(status='1', category= category_id)
-  
+  categories = Category.objects.all()
+
+
   context = {
     'posts' : posts,
+    'categories' : categories,
     
 
   }
