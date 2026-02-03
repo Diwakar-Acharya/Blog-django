@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from blogs import views as blogs_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +28,8 @@ urlpatterns = [
     
     # 2. This adds your Signup URL
     path('accounts/', include('accounts.urls')),
+    path('<slug:slug>', blogs_urls.blogs, name ='blogs'),
+
 
 
 
