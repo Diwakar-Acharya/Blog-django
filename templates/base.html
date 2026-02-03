@@ -23,7 +23,7 @@
         {{ front.title }}
       </h2>
       <p class="text-zinc-300 mb-6">
-        {{ front.short_description }}
+        {{ front.short_description | truncatewords:15 }}
       </p>
       <a href="#"
          class="inline-flex items-center gap-2 text-yellow-400 font-semibold
@@ -51,7 +51,7 @@
       </h4>
       <p class="text-sm text-zinc-400 mb-3">{{ blog.created_at }} · {{ blog.author }}</p>
       <p class="text-zinc-300">
-        {{ blog.short_description }}
+        {{ blog.short_description | truncatewords:15  }}
       </p>
     </article>
 
@@ -102,7 +102,7 @@
           {{ posts.title }}
         </h4>
         <p class="text-sm text-zinc-400">
-          {{ posts.short_description }}
+          {{ posts.short_description | truncatewords:15  }}
         </p>
       </div>
     </div>

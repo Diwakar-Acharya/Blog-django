@@ -22,7 +22,11 @@ urlpatterns = [
     path('', include('blogs.urls')),
     path('category/', include('blogs.urls')),
 
-
+    # 1. This adds the Login/Logout URLs automatically
+    path('accounts/', include('django.contrib.auth.urls')), 
+    
+    # 2. This adds your Signup URL
+    path('accounts/', include('accounts.urls')),
 
 
 
